@@ -4,10 +4,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
 import time
+import requests
 
 matplotlib.use("Agg")
 
-API_BASE = "http://127.0.0.1:8000"
+
+RENDER_URL = "https://asset-performance-management.onrender.com" 
+LOCAL_URL = "http://127.0.0.1:8000"
+
+try:
+    requests.get(LOCAL_URL, timeout=1)
+    API_BASE = LOCAL_URL
+except requests.exceptions.RequestException:
+    API_BASE = RENDER_URL
 
 st.set_page_config(
     page_title="Asset Performance Management",

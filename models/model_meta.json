@@ -1,0 +1,17 @@
+{
+  "model_type": "RandomForestClassifier",
+  "n_estimators": 100,
+  "threshold": 0.3,
+  "roc_auc_test": 0.9652,
+  "cv_roc_auc_mean": 0.9624,
+  "cv_roc_auc_std": 0.0173,
+  "f1_failure_class": 0.79,
+  "features": [
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]",
+    "temp_difference"
+  ]
+}

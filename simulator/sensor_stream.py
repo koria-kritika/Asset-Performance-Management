@@ -2,8 +2,21 @@ import pandas as pd
 import requests
 import time
 import random
+import requests
 
-API_URL = "http://127.0.0.1:8000/ingest"
+LOCAL_INGEST_URL = "http://127.0.0.1:8000/ingest"
+RENDER_INGEST_URL = "https://asset-performance-management.onrender.com/ingest"  
+
+
+try:
+   
+    requests.get("http://127.0.0.1:8000/", timeout=1)
+    API_URL = LOCAL_INGEST_URL
+    print("Simulator Connected to: LOCAL Backend")
+except requests.exceptions.RequestException:
+    API_URL = RENDER_INGEST_URL
+    print("Simulator Connected to: CLOUD Render Backend")
+
 DATA_PATH = "data/ai4i2020.csv"
 INTERVAL = 2
 

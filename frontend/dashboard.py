@@ -151,7 +151,7 @@ st.caption("Live Operations & Asset Health")
 
 health = fetch_health()
 if health.get("status") != "ok":
-    st.error("API server offline — run: uvicorn backend.main:app --reload")
+    st.info("**Note for Reviewers:** This project is hosted on a free cloud tier (Render). If the backend is currently inactive, the server may take **30-50 seconds to spin up** (wake up). Please refresh the page in a minute!")
     st.stop()
 
 df = fetch_logs()
@@ -381,6 +381,6 @@ with tab2:
 
 
 st.divider()
-st.caption("Auto-refreshing every 3 seconds...")
-time.sleep(3)
+st.caption("Auto-refreshing every 10 seconds...")
+time.sleep(10)
 st.rerun()
